@@ -21,7 +21,7 @@ class Place(models.Model):
     ]
     name = models.CharField('Интересное место', max_length=255)
     desc = models.TextField()
-    type = models.CharField('Тип места', choices=PLACE_TYPE, default='Park')
+    type = models.CharField('Тип места', max_length=255, choices=PLACE_TYPE, default='Park')
     city = models.ForeignKey(City, on_delete=models.CASCADE)
 
     def __str__(self) -> str:

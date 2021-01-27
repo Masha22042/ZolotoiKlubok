@@ -5,11 +5,23 @@
 {% endblock title %}
 
 {% block content %}
-<h1>Вокруг света</h1>
+<div class="header">
+<h1 class="logo">Вокруг света</h1>
 <ul class="menu">
-<li>Города</li>
-<li>Места</li>
-<li>Выйти</li>
+<li><a href="#">Города</a></li>
+<li><a href="#">Места</a></li>
+<li><a href="#">Выйти</a></li>
 </ul>
+</div>
+
+<div class="container">
+{% if cities %}
+<ul>
+{% for city in cities %}
+<li><a href="#"{{ city.name }}></a></li>
+{% endfor %}
+</ul>
+{% endif %}
+</div>
 
 {% endblock content %}
