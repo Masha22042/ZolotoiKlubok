@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вокруг света</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/золотой клубок блин.png" type="imege/x-png">
+</head>
+<body>
+    <header>
+        <div class="centrik"><img src="img/золотой клубок блин.png" class="logo"></div>
+        
+    </header>
+    <section>
+        <div class="container">
+           <div class="flexbox">
+               <div class="left_block">
+            <div>
+                <a href="#" onclick="openbox('box'); return false"><img class="x1" src="страны.png" alt=""></a>
+            </div>
+            <div>
+                <a href="#" onclick="openbox('box'); return false"><img class="x2" src="города.png" alt=""></a>
+
+            </div>
+            <div>
+                <a href="#" onclick="openbox('box'); return false"><img class="x3" src="места.png" alt=""></a>
+            </div>
+           </div>
+            <div class="right_block">
+                <div id="box" class="country" style="display: none;"></div>
+            </div>
+
+            </div>
+           </div>
+        </div>
+    </section>
+
+
+<script type="text/javascript">
+    function openbox(id){
+        display = document.getElementById(id).style.display;
+        if(display=='none'){
+           document.getElementById(id).style.display='inline-block';
+        }else{
+           document.getElementById(id).style.display='none';
+        }
+    }
+    </script>
+    
+</body>
+</html>
