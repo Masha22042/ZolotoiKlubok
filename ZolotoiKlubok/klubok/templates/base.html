@@ -5,11 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <title>{% block title %}{% endblock title %}</title>
+    <title>{% block title %}Главная{% endblock title %}</title>
 </head>
 <body>
+<div id="logo">
+<img class="logo" src="/static/img/klubok.jpg" alt="logo">
+</div>
+<div id="sidebar">
+<div class="sidebar-text">
+<h2>Вокруг света</h2>
+<ul class="menu">
+<li><a href="{% url 'index' %}">Города</a></li>
+<li><a href="{% url 'all_places' %}">Места</a></li>
+{% if request.user.is_authenticated %}
+<li><a href="{% url 'logout' %}">Выход</a></li>
+{% else %}
+<li><a href="{% url 'login' %}">Вход</a></li>
+{% endif %}
+</ul>
+</div>
+</div>
+    <div id="content">
     {% block content %}
-    
     {% endblock content %}
+    </div>
+    <div id="footer">
+    Золотой Клубок (c) 2021
+    </div>
 </body>
 </html>
