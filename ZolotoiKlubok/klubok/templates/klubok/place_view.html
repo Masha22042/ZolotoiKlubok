@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ place_name.name }}{% endblock title %}
+
+{% block content %}
+<h1>{{ place_name.name }}</h1>
+<p><em>{{ place_name.type }}</em></p>
+<p>{{ place_name.desc }}</p>
+<hr>
+<h2>Отзывы:</h2>
+{% if reviews %}
+{% for review in reviews %}
+<h3>{{ review.author.username }}</h3>
+<p><em>Написано: {{ review.created|date:'d.m.Y H:i' }}</em></p>
+<p>{{ review.text }}</p>
+{% endfor %}
+<h2>Добавить новый отзыв:</h2>
+<form action="." method='post'>
+{{ form.as_p }}
+{% csrf_token %}
+<input type="submit" value="Добавить">
+</form>
+{% else %}
+<h3>Здесь еще не оставили ни одного отзыва.</h3>
+<p>Напишите свой отзыв, воспользовавшись формой ниже:</p>
+<form action="." method='post'>
+{{ form.as_p }}
+{% csrf_token %}
+<input type="submit" value="Добавить">
+</form>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Места{% endblock title %}
+
+{% block content %}
+<h1 style="text-align: center;">Интересные места</h1>
+{% if places %}
+{% for place in places %}
+<div style="text-align: center;">
+<h3><a href="{{ place.get_absolute_url }}">{{ place.name }}</a></h3>
+<p>{{ place.city }}</p>
+<p><em>{{ place.type }}</em></p>
+<p>{{ place.desc|truncatewords:30 }}</p>
+<hr>
+</div>
+{% endfor %}
+<div style="text-align: center;">
+</div>
+{% else %}
+<p>Интересных мест еще нет...</p>
+{% endif %}
+{% endblock content %}
